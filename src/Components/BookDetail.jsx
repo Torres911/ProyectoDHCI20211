@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
+import styles from '../App.module.css';
+//import axios from "axios";
 
 export class BookDetail extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export class BookDetail extends Component {
       }
     };
   }
-
+/*
   componentDidMount() {
     this.fetchBook(this.props.match.params.id);
   }
@@ -49,12 +50,12 @@ export class BookDetail extends Component {
   goBack = () => {
     this.props.history.goBack();
   };
-
+*/
   render() {
     const { book } = this.state;
     return book ? (
       <div>
-        <h2>book.title details!</h2>
+        <h2>book.title Informacion!</h2>
         <div>
           <label>id: </label>
           {book.id}

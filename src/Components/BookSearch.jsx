@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
+import styles from '../App.module.css';
+//import axios from "axios";
 import { Link } from "react-router-dom";
 
 export class BookSearch extends Component {
@@ -9,7 +10,7 @@ export class BookSearch extends Component {
       books: []
     };
   }
-
+/*
   search = event => {
     console.log(event.target.value);
     axios
@@ -22,11 +23,11 @@ export class BookSearch extends Component {
         });
       });
   };
-
+*/
   render() {
     const books = this.state.books.map(book => {
       return (
-        <div key={book.id} className="search-result">
+        <div key={book.id} className={styles.searchresult}>
           <Link to={`/detail/${book.id}`}>{book.title}</Link>
         </div>
       );

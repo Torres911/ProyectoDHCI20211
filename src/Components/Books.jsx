@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+//import axios from "axios";
 import { Link } from "react-router-dom";
 
 export class Books extends React.Component {
@@ -12,7 +12,7 @@ export class Books extends React.Component {
       selectedBook: null
     };
   }
-
+/*
   componentDidMount() {
     this.refreshList();
   }
@@ -25,8 +25,8 @@ export class Books extends React.Component {
 
   refreshList = () => {
     axios.get("http://localhost:5000/books").then(response => {
-      console.log(response.data); // ex.: { user: 'Your User'}
-      console.log(response.status); // ex.: 200
+      console.log(response.data);
+      console.log(response.status);
       this.setState({
         books: response.data
       });
@@ -60,50 +60,14 @@ export class Books extends React.Component {
       });
     });
   };
-
+*/
   render() {
     return (
       <div>
         <h2>Libreria</h2>
         <div>
           <label>Titulo del Libro:</label>
-          <input
-            type="text"
-            value={this.state.inputContent}
-            onChange={e => this.setState({ inputContent: e.target.value })}
-          />
-          <button onClick={() => this.add(this.state.inputContent)}>Add</button>
         </div>
-        <br />
-        <hr />
-        <ul className="books">
-          {this.state.books.map(book => (
-            <li
-              key={book.id}
-              className={
-                this.state.selectedBook &&
-                this.state.selectedBook.id === book.id &&
-                "selected"
-              }
-              onClick={() => this.setState({ selectedBook: book })}
-            >
-              <span className="badge">{book.id}</span>
-              {book.title}
-              <button className="delete" onClick={() => this.remove(book.id)}>
-                x
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        {this.state.selectedBook && (
-          <div>
-            <h2>{this.state.selectedBook.title} es mi libro favorito</h2>
-            <Link to={`/detail/${this.state.selectedBook.id}`}>
-              View details
-            </Link>
-          </div>
-        )}
       </div>
     );
   }
